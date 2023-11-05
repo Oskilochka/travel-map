@@ -3,7 +3,8 @@ import React from 'react';
 type PlaceProps = {
 
 };
-export const Place = (props: PlaceProps) => {
+
+export const PlaceCard = (props: PlaceProps) => {
     return (
         <div>
             Place

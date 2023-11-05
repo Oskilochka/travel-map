@@ -1,4 +1,4 @@
 export * from './Header'
 export * from './Map'
-export * from './Place'
+export * from './PlaceCard'
 export * from './List'
