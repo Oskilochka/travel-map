@@ -1,13 +1,13 @@
 import React from 'react';
 
 type PlaceProps = {
-
+    name: string
 };
 
-export const PlaceCard = (props: PlaceProps) => {
+export const PlaceCard = ({name}: PlaceProps) => {
     return (
         <div>
-            Place
+            {name}
         </div>
     );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import useStyles from "./styles";
 import {FormControl, Grid, InputLabel, MenuItem, Select, Typography} from "@mui/material";
-import { PlaceCard } from '../PlaceCard';
+import {PlaceCard} from '../PlaceCard';
 
 type ListProps = {};
 
@@ -18,7 +18,16 @@ enum Rate {
     moreThanFour = 3,
 }
 
-const places = [
+type Place = {
+    id: string,
+    name: string
+}
+
+const places: Place[] = [
+    {
+        id: "2",
+        name: "ef"
+    },
     {
         id: "2",
         name: "ef"
@@ -54,7 +63,8 @@ export const List = (props: ListProps) => {
             </FormControl>
             <FormControl className={classes.formControl}>
                 <InputLabel id="rate-label">Rate</InputLabel>
-                <Select labelId="rate-label" label={"Rate"} className={classes.formControl} value={type} onChange={onChangeHandler}>
+                <Select labelId="rate-label" label={"Rate"} className={classes.formControl} value={type}
+                        onChange={onChangeHandler}>
                     <MenuItem value={Rate.all}>All</MenuItem>
                     <MenuItem value={Rate.moreThanTwo}>2+</MenuItem>
                     <MenuItem value={Rate.moreThanThree}>3+</MenuItem>
@@ -66,9 +76,9 @@ export const List = (props: ListProps) => {
                 spacing={3}
                 className={classes.list}
             >
-                {places?.map(({place, index} : any ) => {
+                {places?.map((place, index) => {
                     return <Grid item xs={12} key={index}>
-                        <PlaceCard info={place} />
+                        <PlaceCard name={place.name}/>
                     </Grid>
                 })}
 
