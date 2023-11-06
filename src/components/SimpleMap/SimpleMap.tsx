@@ -3,22 +3,22 @@ import Map from 'react-map-gl';
 
 type MapProps = {};
 
-const coordinates = {
-    lat: 0,
-    lng: 0
+const defValue = {
+    longitude: 30,
+    latitude: 50,
+    zoom: 6,
 }
 
 export const SimpleMap = (props: MapProps) => {
+    const [viewState, setViewState] = React.useState(defValue);
+
     return (
         <Map
-            mapboxAccessToken="<Mapbox access token>"
-            initialViewState={{
-                longitude: -122.4,
-                latitude: 37.8,
-                zoom: 14
-            }}
-            style={{width: 600, height: 400}}
+            {...viewState}
+            onMove={evt => setViewState(evt.viewState)}
             mapStyle="mapbox://styles/mapbox/streets-v9"
+            style={{width: "100vw", height: "100vh"}}
+            mapboxAccessToken={process.env.REACT_APP_MAPBOX_API_KEY}
         />
     );
 };
