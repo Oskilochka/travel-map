@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = 'https://travel-advisor.p.rapidapi.com/restaurants/list-in-boundary'
+const URL = "https://travel-advisor.p.rapidapi.com/restaurants/list-in-boundary"
 
 const options = {
     params: {
@@ -10,14 +10,10 @@ const options = {
         tr_longitude: '109.149359'
     },
     headers: {
-        'X-RapidAPI-Key': 'a3075a8e65msh5caab5ce060a0d0p196870jsn7bc11cde41f1',
-        'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com'
+        'X-RapidAPI-Key': process.env.RAPID_API_KEY,
+        'X-RapidAPI-Host': process.env.RAPID_API_HOST
     }
 };
-//
-// axios.request(options).then((response) => {
-//     console.log(response.data)
-// }).catch((e) => console.error(e))
 
 export const getPlaceInfo = async () => {
     try {
