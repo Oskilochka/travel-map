@@ -1,10 +1,18 @@
 import React from 'react';
-import {Header, List, Map} from "./components";
+import {Header, List, SimpleMap} from "./components";
 import {createTheme, CssBaseline, Grid} from "@mui/material";
 import {ThemeProvider} from "@mui/styles";
+import {getPlaceInfo} from "./api";
 
 function App() {
     const theme = createTheme()
+    const [places, setPlaces] = React.useState<any>()
+
+    React.useEffect(() => {
+        getPlaceInfo().then(setPlaces);
+    }, [])
+
+    console.log(places, 'places')
 
     return (
         <ThemeProvider theme={theme}>
@@ -16,7 +24,7 @@ function App() {
                         <List/>
                     </Grid>
                     <Grid item xs={12} md={8}>
-                        <Map/>
+                        <SimpleMap/>
                     </Grid>
                 </Grid>
             </div>
