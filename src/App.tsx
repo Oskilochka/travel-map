@@ -3,6 +3,7 @@ import {Header, List, SimpleMap} from "./components";
 import {createTheme, CssBaseline, Grid} from "@mui/material";
 import {ThemeProvider} from "@mui/styles";
 import {getPlaceInfo} from "./api";
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 function App() {
     const theme = createTheme()
