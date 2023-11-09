@@ -22,7 +22,7 @@ const UserModel = new mongoose.Schema({
         unique: true
     },
 }, {
-    timestamps: true // for craetedAt
+    timestamps: true // for createdAt
 })
 
 module.exports = mongoose.model("User", UserModel)

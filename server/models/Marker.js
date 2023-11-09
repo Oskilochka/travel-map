@@ -5,6 +5,7 @@ const MarkerModel = new mongoose.Schema({
         require: true,
         type: String,
         min: 5,
+        max: 50
     },
     description: {
         require: true,
