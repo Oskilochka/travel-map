@@ -1,6 +1,7 @@
 import React from 'react';
 import Map, {Marker, Popup} from 'react-map-gl';
 import FmdGoodIcon from '@mui/icons-material/FmdGood';
+import {PlaceCard} from "../PlaceCard";
 
 type MapProps = {};
 
@@ -28,21 +29,7 @@ export const SimpleMap = (props: MapProps) => {
                     anchor="left"
                     onClose={() => setShowPopup(false)}
                 >
-                    <div className="card">
-                        <label>Place</label>
-                        {/*<h4 className="place">{p.title}</h4>*/}
-                        <label>Review</label>
-                        {/*<p className="desc">{p.desc}</p>*/}
-                        <label>Rating</label>
-                        <div className="stars">
-                            {/*{Array(p.rating).fill(<Star className="star"/>)}*/}
-                        </div>
-                        <label>Information</label>
-                        <span className="username">
-                    {/*Created by <b>{p.username}</b>*/}
-                  </span>
-                        {/*<span className="date">{format(p.createdAt)}</span>*/}
-                    </div>
+                    <PlaceCard title={"tet"}/>
                 </Popup>)}
             <Marker
                 longitude={30.523333}
