@@ -13,7 +13,7 @@ export const Header = () => {
     }
 
     return (
-        <AppBar position={"static"}>
+        <AppBar position={"fixed"}>
             <Toolbar className={classes.toolbar}>
                 <Typography variant={'h5'}>
                     Travel
