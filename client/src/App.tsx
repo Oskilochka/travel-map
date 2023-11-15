@@ -14,13 +14,13 @@ function App() {
     }, [])
 
     // const [showPopup, setShowPopup] = React.useState<boolean>(true);
-
-
     console.log(markers, 'places')
 
     return (
         <ThemeProvider theme={theme}>
+            <Header />
             <SimpleMap>
+
 
 
                 {/*{showPopup && (*/}

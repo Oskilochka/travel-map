@@ -1,31 +1,35 @@
 import React from 'react';
-import {AppBar, Autocomplete, Box, InputBase, Toolbar, Typography} from "@mui/material";
-import SearchIcon from '@mui/icons-material/Search';
-
+import {AppBar, Box, Button, Toolbar, Typography} from "@mui/material";
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
 import useStyles from "./styles"
 
 export const Header = () => {
     const classes = useStyles();
+    const [isLogin, setIsLogin] = React.useState(false)
+
+    const onLoginHandler = (e: any) => {
+        setIsLogin(state => !state)
+    }
 
     return (
         <AppBar position={"static"}>
             <Toolbar className={classes.toolbar}>
-                <Typography className={classes.title} variant={'h5'}>
+                <Typography variant={'h5'}>
                     Travel
                 </Typography>
-                <Box display={"flex"}>
-                    <Typography className={classes.title} variant={'h6'}>
-                        Find a new places
-                    </Typography>
-                    {/*<Autocomplete options={{}}>*/}
-                    <div className={classes.search}>
-                        <SearchIcon/>
-                        <InputBase
-                            classes={{root: classes.inputWrap, input: classes.inputField}}
-                            placeholder={"Search"}
-                        />
-                    </div>
-                    {/*</Autocomplete>*/}
+                <Box>
+                    <Button
+                        onClick={onLoginHandler}
+                        variant="contained"
+                        color="secondary"
+                        className={classes.loginBtn}
+                    >
+                        {isLogin
+                            ? <><LogoutIcon/>Logout</>
+                            : <><LoginIcon/>Login</>
+                        }
+                    </Button>
                 </Box>
             </Toolbar>
         </AppBar>
