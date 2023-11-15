@@ -78,7 +78,7 @@ export const List = (props: ListProps) => {
             >
                 {places?.map((place, index) => {
                     return <Grid item xs={12} key={index}>
-                        <PlaceCard name={place.name}/>
+                        <PlaceCard title={place.name}/>
                     </Grid>
                 })}
 

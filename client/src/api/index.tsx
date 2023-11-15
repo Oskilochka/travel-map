@@ -19,9 +19,9 @@ const options = {
     }
 };
 
-export const getPlaceInfo = async () => {
+export const getMarkers = async () => {
     try {
-        const data = await axios.get(URL, options);
+        const data = await axios.get('/markers');
         debugger
         return data;
     } catch (e) {

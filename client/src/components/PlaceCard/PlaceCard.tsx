@@ -1,6 +1,5 @@
 import React from 'react';
 import {Star} from "@mui/icons-material";
-import {format} from "util";
 
 type PlaceProps = {
     title?: string,
@@ -33,7 +32,7 @@ export const PlaceCard = (
                 <span className="username">
                     Created by <b>{username}</b>
                   </span>
-                <span className="date">{format(createdAt)}</span>
+                <span className="date">{createdAt}</span>
             </div>
         </div>
     );

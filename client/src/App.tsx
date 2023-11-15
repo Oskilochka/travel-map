@@ -2,22 +2,46 @@ import React from 'react';
 import {Header, List, SimpleMap} from "./components";
 import {createTheme, CssBaseline, Grid} from "@mui/material";
 import {ThemeProvider} from "@mui/styles";
-import {getPlaceInfo} from "./api";
+import {getMarkers} from "./api";
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 function App() {
     const theme = createTheme()
-    const [places, setPlaces] = React.useState<any>()
+    const [markers, setMarkers] = React.useState<any>()
 
     React.useEffect(() => {
-        getPlaceInfo().then(setPlaces);
+        getMarkers().then(setMarkers);
     }, [])
 
-    console.log(places, 'places')
+    // const [showPopup, setShowPopup] = React.useState<boolean>(true);
+
+
+    console.log(markers, 'places')
 
     return (
         <ThemeProvider theme={theme}>
-            <SimpleMap/>
+            <SimpleMap>
+
+
+                {/*{showPopup && (*/}
+                {/*    <Popup*/}
+                {/*        longitude={30.523333}*/}
+                {/*        latitude={50.450001}*/}
+                {/*        anchor="left"*/}
+                {/*        onClose={() => setShowPopup(false)}*/}
+                {/*    >*/}
+                {/*        <PlaceCard title={"tet"}/>*/}
+                {/*    </Popup>)}*/}
+                {/*<Marker*/}
+                {/*    longitude={30.523333}*/}
+                {/*    latitude={50.450001}*/}
+                {/*    anchor="bottom"*/}
+                {/*    color="red"*/}
+                {/*>*/}
+                {/*    <FmdGoodIcon style={{fontSize: viewState.zoom * 6, color: "red"}}/>*/}
+                {/*</Marker>*/}
+
+            </SimpleMap>
 
             {/*<div className="App">*/}
             {/*    <CssBaseline/>*/}
