@@ -16,26 +16,26 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "marker")
+@Table(name = "markers")
 public class Marker {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", columnDefinition = "int")
     private Long id;
 
-    @Column(name = "title", nullable = false, unique = true, columnDefinition = "nvarchar(150)")
+    @Column(name = "title", nullable = false, unique = true)
     private String title;
 
-    @Column(name = "description", nullable = false, columnDefinition = "nvarchar(255)")
+    @Column(name = "description", nullable = false)
     private String description;
 
-    @Column(name = "username", nullable = false, unique = true, columnDefinition = "nvarchar(100)")
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
 
-    @Column(name = "category_id", nullable = false, columnDefinition = "smallint")
+    @Column(name = "category_id", nullable = false)
     private Integer categoryId;
 
-    @Column(name = "rating", nullable = false, columnDefinition = "smallint")
+    @Column(name = "rating", nullable = false)
     private int rating;
 
     @Enumerated(EnumType.STRING)
