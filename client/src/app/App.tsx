@@ -1,11 +1,11 @@
 import React from 'react';
-import {Header, List, PlaceCard, SimpleMap} from "./components";
 import {createTheme, Grid} from "@mui/material";
 import {ThemeProvider} from "@mui/styles";
-import {getMarkers} from "./api";
+import {getMarkers} from "../api";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import {Marker, Popup} from "react-map-gl";
 import {Room} from "@mui/icons-material";
+import {Header, List, PlaceCard, SimpleMap} from "../components";
 
 function App() {
     const theme = createTheme()
