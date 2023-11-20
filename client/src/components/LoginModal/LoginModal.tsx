@@ -11,21 +11,13 @@ import { IconButton, Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
 export const FormDialog = ({ open, setOpen }: any) => {
-  // const [ open, setOpen ] = React.useState(false);
-  
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  
   const handleClose = () => {
     setOpen(false);
   };
   
   return (
     <React.Fragment>
-      <Button variant="outlined" onClick={ handleClickOpen }>
-        Open form dialog
-      </Button>
+    
       <Dialog open={ open } onClose={ handleClose }>
         <DialogTitle>
           <Typography variant="h5">Login Form</Typography>

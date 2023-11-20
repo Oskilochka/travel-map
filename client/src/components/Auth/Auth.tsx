@@ -1,77 +1,33 @@
 import React from "react";
-import { useFormik } from "formik";
-import { Box, Button, Checkbox, InputLabel, TextField, Typography } from "@mui/material";
-import * as Yup from "yup";
-
-const MAXIMUM_PASSWORD_LENGTH = 30;
-const MINIMUM_PASSWORD_LENGTH = 6;
+import { FormikFormProps, FormikHelpers, useFormik } from "formik";
+import { Box, Button, Checkbox, InputLabel, TextField } from "@mui/material";
+import { validationSchema } from "./validationSchema";
 
 export interface AuthValues {
-  email: string;
-  password: string;
-}
-
-
-interface ILoginValues {
   email: string;
   password: string;
   keepLoggedIn: boolean;
 }
 
-const loginValidationSchema = () => {
-  return Yup.object({
-    email: Yup.string()
-      .email("Invalid email address")
-      .required("This field is required"),
-    password: Yup.string()
-      .required("This field is required")
-      .max(
-        MAXIMUM_PASSWORD_LENGTH,
-        `Maximum password length is ${ MAXIMUM_PASSWORD_LENGTH } characters`
-      )
-      .min(
-        MINIMUM_PASSWORD_LENGTH,
-        `Minimum password length is ${ MINIMUM_PASSWORD_LENGTH } characters`
-      )
-  });
-};
-
-
 export const AuthComponent: React.FC = () => {
-  // const onSubmit = (values: AuthValues) => {
-  //   // Handle form submission logic here
-  // };
-  //
-  // const validate = (values: AuthValues) => {
-  //   // Implement form validation logic
-  // };
-  //
-  // const formik = useFormik<AuthValues>({
-  //   initialValues: authInitialValues,
-  //   onSubmit,
-  //   validate,
-  // });
-  
-  const handleSubmitForm = (loginFormikForm: any) => {
+  const handleSubmitForm = (loginFormikForm: FormikFormProps<AuthValues> ) => {
     const { email, password, keepLoggedIn } = loginFormikForm.values;
     alert(
       `email: ${ email }\npassword: ${ password }\nkeepLoggedIn: ${ keepLoggedIn }`
     );
   };
   
-  // @ts-ignore
-  const loginFormikForm = useFormik<ILoginValues>({
+  const loginFormikForm: any = useFormik<AuthValues>({
     initialValues: {
       email: "",
       password: "",
       keepLoggedIn: false
     },
-    validationSchema: loginValidationSchema,
+    validationSchema: validationSchema,
     onSubmit: () => handleSubmitForm(loginFormikForm)
   });
   
   return (
-    // <Box display="flex" flexDirection="column">
     <form onSubmit={ loginFormikForm.handleSubmit }>
       <Box
         sx={ { display: "flex", flexDirection: "column" } }
@@ -129,6 +85,5 @@ export const AuthComponent: React.FC = () => {
         Submit
       </Button>
     </form>
-    // </Box>
   );
 };
