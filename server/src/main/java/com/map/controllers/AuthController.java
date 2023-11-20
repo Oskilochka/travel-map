@@ -1,12 +1,13 @@
 package com.map.controllers;
 
-import com.map.dto.AuthRequest;
+import com.map.dto.LoginRequest;
 import com.map.entities.User;
 import com.map.services.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -21,10 +22,13 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody AuthRequest authRequest) {
-        User newUser = userService.createUser(user);
-        return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
+    public ResponseEntity<Void> login(@RequestBody LoginRequest loginRequest) {
+        Authentication authenticationRequest = UsernamePasswordAuthenticationToken.unauthenticated(loginRequest.getUsername(), loginRequest.getPassword());
+        Authentication authenticationResponse = this.authenticationManager.authenticate(authenticationRequest);
     }
 
+
+//    public record LoginRequest(String username, String password) {
+//    }
 
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import useStyles from "./styles";
 import {FormControl, Grid, InputLabel, MenuItem, Select, Typography} from "@mui/material";
-import {PlaceCard} from '../../library/PlaceCard';
+import {PlaceCard} from '../PlaceCard';
 import {Place, PlaceType, Rate} from "./types";
 
 type ListProps = {};
