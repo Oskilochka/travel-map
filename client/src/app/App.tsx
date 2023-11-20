@@ -5,6 +5,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import { Marker, Popup } from "react-map-gl";
 import { Room } from "@mui/icons-material";
 import { AuthComponent, Header, List, PlaceCard, SimpleMap } from "../components";
+import { FormDialog } from "../components/LoginModal/LoginModal";
 
 function App() {
   const theme = createTheme()
@@ -14,8 +15,9 @@ function App() {
     // getMarkers().then(setMarkers);
   }, [])
   
-  const [ showPopup, setShowPopup ] = React.useState<boolean>(true);
+  const [ showPopup, setShowPopup ] = React.useState<boolean>(false);
   console.log(markers, "places")
+  
   
   return (
     <ThemeProvider theme={ theme }>
@@ -23,12 +25,13 @@ function App() {
       <Grid container spacing={ 3 } style={ { width: "50%" } }>
         <Grid item xs={ 12 } md={ 4 }>
           <AuthComponent/>
+          <FormDialog setOpen={ setShowPopup } open={ showPopup }/>
           
           {/* favourites places*/ }
           {/* places to visit */ }
           {/* created markers */ }
           <List/>
-          
+        
         </Grid>
         <Grid item xs={ 12 } md={ 8 }>
           <SimpleMap>
