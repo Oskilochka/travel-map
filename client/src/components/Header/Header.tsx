@@ -16,7 +16,7 @@ export const Header = () => {
   // on click open a modal if user is not login , but if you logined open modal with confirmation of existing
   
   return (
-    <AppBar position={ "fixed" }>
+    <AppBar >
       <Toolbar className={ classes.toolbar }>
         <Typography variant={ "h5" }>
           Travel
