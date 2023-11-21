@@ -6,11 +6,11 @@ import { validationSchema } from "./validationSchema";
 export interface AuthValues {
   email: string;
   password: string;
-  keepLoggedIn: boolean;
+  keepLoggedIn?: boolean;
 }
 
 export const AuthComponent: React.FC = () => {
-  const handleSubmitForm = (loginFormikForm: FormikFormProps<AuthValues> ) => {
+  const handleSubmitForm = (loginFormikForm: any ) => {
     const { email, password, keepLoggedIn } = loginFormikForm.values;
     alert(
       `email: ${ email }\npassword: ${ password }\nkeepLoggedIn: ${ keepLoggedIn }`
