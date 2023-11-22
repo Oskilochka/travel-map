@@ -12,6 +12,7 @@ export function MapComponent({}: Props) {
   
   return (
     <SimpleMap>
+      
       { showPopup && (
         <Popup
           longitude={ 30.523333 }
