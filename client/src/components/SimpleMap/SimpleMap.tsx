@@ -20,7 +20,7 @@ export const SimpleMap = ({children}: MapProps) => {
         <Map
             {...viewState}
             onMove={evt => setViewState(evt.viewState)}
-            style={{width: "80vw", height: "80vh"}}
+            style={{width: "100%", height: "100%"}}
             mapStyle={MAP_STYLE_URL}
             mapboxAccessToken={process.env.REACT_APP_MAPBOX_API_KEY}
         >
