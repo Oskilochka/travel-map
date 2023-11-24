@@ -1,16 +1,18 @@
 import React from "react";
 import { ThemeProvider } from "@mui/styles";
-import { Header, List, MapComponent, MainLayout } from "components";
+import { List } from "components";
+import { Header, MainLayout } from "shared";
+import { initMap } from "library";
+import { MapView } from "shared";
 import { theme } from "./styles";
 
-// routing ?
 function App() {
   return (
     <ThemeProvider theme={ theme }>
       <MainLayout
         headerComponent={ <Header/> }
         sideMenuComponent={ <List/> }
-        mapComponent={ <MapComponent/> }
+        mapComponent={ <MapView initMap={ initMap } /> }
       />
     </ThemeProvider>
   )

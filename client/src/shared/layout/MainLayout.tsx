@@ -1,35 +1,18 @@
 import React from "react";
-import { makeStyles } from "@mui/styles";
+import { useStyles } from "./styles";
 
-type Props = {
+type MainLayoutProps = {
   headerComponent?: React.ReactNode,
   mapComponent?: React.ReactNode,
   sideMenuComponent?: React.ReactNode,
 };
-
-const useStyles = makeStyles(() => ({
-  root: {
-    height: "100vh",
-    maxHeight: "100vh"
-  },
-  container: {
-    display: "flex"
-  },
-  item: {
-    border: "1px solid blue"
-  },
-  itemFlexGrow: {
-    flexGrow: 1,
-    border: "1px solid red"
-  }
-}));
 
 export function MainLayout(
   {
     headerComponent,
     mapComponent,
     sideMenuComponent
-  }: Props) {
+  }: MainLayoutProps) {
   const classes = useStyles();
   return (
     <div className={ classes.root }>
@@ -41,7 +24,6 @@ export function MainLayout(
         <div className={ classes.itemFlexGrow }>
           { mapComponent }
         </div>
-        {/*<div className={ classes.item }> item 3</div>*/ }
       </div>
     </div>
   );

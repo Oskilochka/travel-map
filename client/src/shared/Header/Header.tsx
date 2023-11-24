@@ -2,14 +2,14 @@ import React from "react";
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
 import LoginIcon from "@mui/icons-material/Login";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { FormDialog } from "library";
 import useStyles from "./styles"
-import { FormDialog } from "../LoginModal/LoginModal";
 
 export const Header = () => {
   const classes = useStyles();
   const [ isLogin, setIsLogin ] = React.useState(false)
   
-  const onLoginHandler = (e: any) => {
+  const onLoginHandler = () => {
     setIsLogin(state => !state)
   }
   
@@ -35,7 +35,7 @@ export const Header = () => {
           </Button>
         </Box>
       </Toolbar>
-      <FormDialog setOpen={ onLoginHandler } open={ isLogin }/>
+      <FormDialog handleClose={ onLoginHandler } open={ isLogin }/>
     </AppBar>
   );
 };
