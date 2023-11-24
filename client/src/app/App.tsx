@@ -6,6 +6,9 @@ import { initMap } from "library";
 import { MapView } from "shared";
 import { theme } from "./styles";
 
+import "mapbox-gl/dist/mapbox-gl.css";
+
+
 function App() {
   return (
     <ThemeProvider theme={ theme }>
